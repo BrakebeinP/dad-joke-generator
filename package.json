@@ -1,7 +1,7 @@
 {
-  "name": "capstone-4",
+  "name": "dad-joke-generator",
   "version": "1.0.0",
-  "description": "",
+  "description": "Capstone 4 of Angela Yu's \"The Complete 2023 Web Development Bootcamp\" course on Udemy",
   "main": "index.js",
   "type": "module",
   "scripts": {
