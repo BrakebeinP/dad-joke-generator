@@ -23,24 +23,27 @@ app.post("/", async (req, res) => {
   };
   try {
     const response = await axios.request(options);
+    console.log(response.data.response);
     const dadJokeBody = response.data.body[0];
     const jokeSetup = dadJokeBody.setup;
     const jokePunchline = dadJokeBody.punchline;
     const jokeAuthor = dadJokeBody.author["name"];
-    const joke = {
-      setup: jokeSetup,
-      punchline: jokePunchline,
-      author: jokeAuthor,
-    };
-    console.log(joke);
+
     res.render("index.ejs", {
+      error: false,
       setup: jokeSetup,
       punchline: jokePunchline,
       author: jokeAuthor,
     });
   } catch (error) {
-    console.error(error);
-    res.render("index.ejs");
+    console.log(error.response.status);
+    console.error(error.response.data.message);
+    res.render("index.ejs", {
+      error: true,
+      errorCode: error.response.status,
+      errorMessage: error.response.statusText,
+      errorDetails: error.response.data.message,
+    });
   }
 });
 

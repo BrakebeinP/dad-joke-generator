@@ -25,7 +25,17 @@
     </header>
     <main>
       <div class="joke">
-        <% if (!locals.setup) { %>
+        <% if (error) { %>
+
+        <form action="/" method="post">
+          <button class="joke-button" type="submit">Get a Dad Joke</button>
+        </form>
+        <p class="error">
+          <strong class="error">Error <%= errorCode %>:</strong>
+          <%= errorMessage %>
+        </p>
+        <em class="error">Try again tomorrow 😥</em>
+        <% } else if (!locals.setup) { %>
         <form action="/" method="post">
           <button class="joke-button" type="submit">Get a Dad Joke</button>
         </form>
@@ -61,7 +71,7 @@
     </footer>
     <script>
       if ($(".joke-punchline")) {
-        var delay = $(".joke-setup").val;
+        var delay = $(".joke-setup").text().length;
         console.log(delay);
         $(".joke-punchline").delay(2000).slideToggle();
       }

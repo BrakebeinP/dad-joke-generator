@@ -68,6 +68,12 @@ main {
   margin-bottom: 0.5rem;
 }
 
+.error {
+  color: red;
+  font-style: italic;
+  margin-bottom: 0;
+}
+
 /* body end / header start */
 
 header {
