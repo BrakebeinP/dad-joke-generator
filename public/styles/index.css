@@ -1,9 +1,12 @@
+/* global start */
+
 :root {
   --color-a: #706a5c;
   --color-b: #fcf0cf;
   --color-c: #afa690;
   --color-d: #bdb39b;
   --color-e: #968f7b;
+  --fixed-width: 30%;
 }
 
 * {
@@ -13,7 +16,15 @@
   text-align: center;
 }
 
-/* body start */
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* global end / body start */
 
 body {
   display: flex;
@@ -21,13 +32,49 @@ body {
   flex-direction: column;
 }
 
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: var(--fixed-width);
+}
+
+.joke {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.joke-button {
+  display: block;
+  padding: 10px;
+  background-color: var(--color-a);
+  border: 1px solid var(--color-e);
+  border-radius: 5px;
+  color: var(--color-b);
+  align-self: center;
+}
+
+.joke-button:hover {
+  background-color: var(--color-e);
+  border: 1px solid var(--color-a);
+}
+
+.joke h2,
+.joke h3 {
+  margin: 0.5rem 0;
+}
+.joke em {
+  margin-bottom: 0.5rem;
+}
+
 /* body end / header start */
 
 header {
   display: flex;
   justify-content: center;
-  border-bottom: 1px solid #333;
-  width: 25%;
+  border-bottom: 1px solid var(--color-a);
+  width: var(--fixed-width);
 }
 
 header h1 {
@@ -47,8 +94,8 @@ main {
 /* main end / footer start */
 
 footer {
-  border-top: 1px solid #333;
-  width: 25%;
+  border-top: 1px solid var(--color-a);
+  width: var(--fixed-width);
 }
 
 /* footer end */
