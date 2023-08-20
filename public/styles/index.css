@@ -62,7 +62,8 @@ main {
 
 .joke h2,
 .joke h3 {
-  margin: 0.5rem 0;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
 }
 .joke em {
   margin-bottom: 0.5rem;

@@ -23,7 +23,6 @@ app.post("/", async (req, res) => {
   };
   try {
     const response = await axios.request(options);
-    console.log(response.data.response);
     const dadJokeBody = response.data.body[0];
     const jokeSetup = dadJokeBody.setup;
     const jokePunchline = dadJokeBody.punchline;
@@ -36,8 +35,6 @@ app.post("/", async (req, res) => {
       author: jokeAuthor,
     });
   } catch (error) {
-    console.log(error.response.status);
-    console.error(error.response.data.message);
     res.render("index.ejs", {
       error: true,
       errorCode: error.response.status,

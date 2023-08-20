@@ -25,7 +25,7 @@
     </header>
     <main>
       <div class="joke">
-        <% if (error) { %>
+        <% if (locals.error) { %>
 
         <form action="/" method="post">
           <button class="joke-button" type="submit">Get a Dad Joke</button>
@@ -71,12 +71,18 @@
     </footer>
     <script>
       if ($(".joke-punchline")) {
-        var delay = $(".joke-setup").text().length;
-        console.log(delay);
-        $(".joke-punchline").delay(2000).slideToggle();
+        var setupLen = $(".joke-setup").text().length;
+        if (setupLen > 75) {
+          var delay = Math.floor((setupLen / 75) * 2000);
+        } else {
+          var delay = 2000;
+        }
+        $(".joke-punchline").delay(delay).slideToggle();
       }
       if ($(".joke-author")) {
-        $(".joke-author").delay(3000).slideToggle();
+        $(".joke-author")
+          .delay(delay * 1.5)
+          .slideToggle();
       }
     </script>
   </body>
